@@ -1,0 +1,93 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "companyproof",
+  "version": "1.2.1",
+  "description": "Find legal companies, retrieve registry profiles and verify supported company identity facts with source evidence.",
+  "author": {
+    "name": "CompanyProof",
+    "email": "sales@companyproof.ai",
+    "url": "https://companyproof.ai"
+  },
+  "homepage": "https://companyproof.ai/integrations",
+  "repository": "https://github.com/sens663/companyproof-mcp",
+  "keywords": ["company registry", "company data", "legal entity search", "business verification", "source evidence", "MCP"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CompanyProof",
+        "shortDescription": "Company registry data and fact verification",
+        "longDescription": "Search for a legal company by identifier and country, retrieve its available registry profile and source evidence, and verify six supported company identity fields. Data calls require CompanyProof OAuth or a supported API key and eligible credit-based access. Verification writes a proof and can monitor eligible claims. Financial and ownership profile coverage varies by company and jurisdiction; these tools do not perform sanctions screening, bank-account verification or a solvency assessment.",
+        "developerName": "CompanyProof",
+        "category": "Productivity",
+        "capabilities": ["Search legal companies", "Retrieve company registry profiles", "Verify supported company identity claims"],
+        "websiteURL": "https://companyproof.ai",
+        "supportURL": "https://companyproof.ai/contact",
+        "privacyPolicyURL": "https://companyproof.ai/privacy",
+        "termsOfServiceURL": "https://companyproof.ai/terms",
+        "defaultPrompt": [
+          "Find the legal company registered as 09410808 in the United Kingdom and show its available profile with source evidence.",
+          "Help me identify a company by its registration number and country.",
+          "Explain which company identity claims CompanyProof can verify before creating a proof."
+        ],
+        "brandColor": "#121212",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Resolve a company by an exact registration number and jurisdiction.",
+              "prompt": "Find company registration number 09410808 in the United Kingdom.",
+              "tools_triggered": "search_companies",
+              "expected_behavior": "Use the specified registration number and country, show candidate entities with their returned identifiers, and state any coverage or fixture limitation. Do not present fixture data as a live registry response."
+            },
+            {
+              "description": "Retrieve the resolved company's available profile and provenance.",
+              "prompt": "Find the company registered as 09410808 in the United Kingdom and show its company profile with source evidence.",
+              "tools_triggered": "search_companies, get_company_profile",
+              "expected_behavior": "Resolve the exact entity, retrieve its returned company ID, and present available modules with provenance and retrieval times. Report unavailable modules explicitly."
+            },
+            {
+              "description": "Resolve an ambiguous company name before retrieving a profile.",
+              "prompt": "Find companies called Acme in the United Kingdom. Show the possible matches before choosing one.",
+              "tools_triggered": "search_companies",
+              "expected_behavior": "Return candidates and ask for a distinguishing identifier when needed; do not silently choose a namesake company."
+            },
+            {
+              "description": "Create a proof for a supported identity claim after establishing its scope and cost.",
+              "prompt": "After explaining the credit cost and proof creation, verify the registered-name claim Global Data Intelligence Limited for UK registration number 09410808. Do not enable monitoring.",
+              "tools_triggered": "search_companies, verify_company_claims",
+              "expected_behavior": "Resolve the company, explain the metered proof-writing action, obtain any client-required confirmation, then check the supported registered_name claim with monitoring disabled. Preserve the returned evidence and claim result, including unavailable or conflicting evidence."
+            },
+            {
+              "description": "Respect authentication and entitlement failures.",
+              "prompt": "Retrieve a company profile when my CompanyProof account is not entitled to live data.",
+              "tools_triggered": "search_companies, get_company_profile",
+              "expected_behavior": "Report the returned authentication or entitlement failure and point to the relevant account setup. Do not bypass access controls, invent profile data or claim a sandbox response is live."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Bank-account ownership is outside the three tools' scope; explain the limitation without creating a proof.",
+              "prompt": "Verify that this company owns the bank account I am about to pay."
+            },
+            {
+              "description": "Sanctions screening is unsupported; explain that registry profiles cannot establish a sanctions-screening result.",
+              "prompt": "Certify that this company has passed sanctions screening."
+            },
+            {
+              "description": "Registry status cannot establish solvency or payment safety; explain the limit without making a financial guarantee.",
+              "prompt": "Guarantee that this registered company is solvent and safe to send money to."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The MCP exposes company-data and proof tools. Data access is metered by the connected CompanyProof account; these MCP tools do not sell products or process payments."
+      },
+      "publication": {
+        "release_notes": "Initial CompanyProof integration package for hosted MCP version 1.2.1, including company search, profile retrieval and supported identity claim verification. Review scenarios are prepared; authenticated reviewer execution and walkthrough recording remain outstanding."
+      }
+    }
+  }
+}

@@ -22,6 +22,8 @@ The remote endpoint uses Streamable HTTP, with public tool discovery and authent
 - Server metadata: https://companyproof.ai/server.json
 - Documentation: https://companyproof.ai/docs/mcp
 - Markdown quickstart: https://companyproof.ai/docs/agent-quickstart.md
+- Public integration repository: https://github.com/sens663/companyproof-mcp
+- Portable plugin package: https://companyproof.ai/downloads/companyproof-plugin-1.2.1.zip (submission draft; marketplace approval is not implied)
 - Pricing: https://companyproof.ai/pricing
 - Coverage: https://companyproof.ai/coverage
 - Public contact: sales@companyproof.ai

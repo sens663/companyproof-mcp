@@ -46,6 +46,7 @@ CompanyProof is in public beta. Directory discovery checks and package validatio
 
 ## Publication resources
 
+- [Smithery MCP listing](https://smithery.ai/servers/buldumak/companyproof)
 - [MCP documentation](https://companyproof.ai/docs/mcp)
 - [Agent quickstart](https://companyproof.ai/docs/agent-quickstart.md)
 - [Directory descriptions and branding](https://companyproof.ai/mcp-listing.md)

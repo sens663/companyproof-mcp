@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "companyproof",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Find legal companies, retrieve registry profiles and verify supported company identity facts with source evidence.",
   "author": {
     "name": "CompanyProof",
@@ -15,8 +15,8 @@
     "com.openai": {
       "interface": {
         "displayName": "CompanyProof",
-        "shortDescription": "Company registry data and fact verification",
-        "longDescription": "Search for a legal company by identifier and country, retrieve its available registry profile and source evidence, and verify six supported company identity fields. Data calls require CompanyProof OAuth or a supported API key and eligible credit-based access. Verification writes a proof and can monitor eligible claims. Financial and ownership profile coverage varies by company and jurisdiction; these tools do not perform sanctions screening, bank-account verification or a solvency assessment.",
+        "shortDescription": "Company data and verification",
+        "longDescription": "Research legal companies for business workflows. Find the right company by identifier and country, retrieve its available registry profile with source evidence, and verify six supported company identity fields. Live data tools require a connected, eligible CompanyProof account. Claim verification creates a proof and can monitor eligible claims. Financial and ownership profile availability varies by company and jurisdiction. These tools do not perform sanctions screening, bank-account verification or a solvency assessment.",
         "developerName": "CompanyProof",
         "category": "Productivity",
         "capabilities": ["Search legal companies", "Retrieve company registry profiles", "Verify supported company identity claims"],
@@ -86,7 +86,7 @@
         "commerce_description": "The MCP exposes company-data and proof tools. Data access is metered by the connected CompanyProof account; these MCP tools do not sell products or process payments."
       },
       "publication": {
-        "release_notes": "Initial CompanyProof integration package for hosted MCP version 1.2.1, including company search, profile retrieval and supported identity claim verification. Review scenarios are prepared; authenticated reviewer execution and walkthrough recording remain outstanding."
+        "release_notes": "Package 1.2.2 updates the directory subtitle and description for legal-company research workflows. It retains hosted MCP version 1.2.1 and all three tools. Review scenarios are prepared; authenticated reviewer execution and walkthrough recording remain outstanding."
       }
     }
   }

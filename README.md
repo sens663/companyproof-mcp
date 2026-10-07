@@ -36,7 +36,7 @@ node examples/discover.mjs
 
 The REST quickstart is in `examples/rest-quickstart.mjs`. It requires a securely configured `COMPANYPROOF_API_KEY` and performs two potentially credit-consuming live requests. Supply a registration number and two-letter country code as arguments.
 
-The root `plugin.json` and `mcp.json` form a portable Agent Plugins package with CompanyProof's current MCP endpoint and OpenAI listing metadata. The downloadable package is [companyproof-plugin-1.2.1.zip](https://companyproof.ai/downloads/companyproof-plugin-1.2.1.zip). This package is a submission draft, not evidence of marketplace approval.
+The root `plugin.json` and `mcp.json` form a portable Agent Plugins package with CompanyProof's current MCP endpoint and OpenAI listing metadata. The downloadable package is [companyproof-plugin-1.2.2.zip](https://companyproof.ai/downloads/companyproof-plugin-1.2.2.zip). Package 1.2.2 connects to hosted MCP version 1.2.1. This package is a submission draft, not evidence of marketplace approval.
 
 ## Evidence and scope
 

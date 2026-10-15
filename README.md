@@ -38,6 +38,12 @@ The REST quickstart is in `examples/rest-quickstart.mjs`. It requires a securely
 
 The root `plugin.json` and `mcp.json` form a portable Agent Plugins package with CompanyProof's current MCP endpoint and OpenAI listing metadata. The downloadable package is [companyproof-plugin-1.2.2.zip](https://companyproof.ai/downloads/companyproof-plugin-1.2.2.zip). Package 1.2.2 connects to hosted MCP version 1.2.1. This package is a submission draft, not evidence of marketplace approval.
 
+## Choose a company data workflow
+
+- [Company data API](https://companyproof.ai/company-data-api): search for a legal entity and retrieve available registry, financial and ownership profile data.
+- [Business verification API](https://companyproof.ai/business-verification-api): check supported identity claims and preserve the evidence behind each result.
+- [How to verify a company](https://companyproof.ai/guides/how-to-verify-a-company): choose the right registry, resolve the entity and interpret missing or conflicting evidence.
+
 ## Evidence and scope
 
 Select the correct company and jurisdiction before interpreting results. Preserve source provenance, retrieval times and module availability. Registry status does not establish trustworthiness, solvency or authority to act. Ownership records do not automatically establish a calculated UBO determination. These tools do not verify bank-account ownership or perform sanctions screening.
